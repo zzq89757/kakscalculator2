@@ -1,0 +1,1 @@
+../src/KaKs_Calculator -i example.axt -o example.axt.kaks -m NG

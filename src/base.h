@@ -36,11 +36,13 @@
 #define NUMBER_OF_RATES	6		//Number of substitution rates
 #define MODELCOUNT	14			//Number of candidate models
 
+/* return gamma distribution probability density function by given x and alpha */
 #define gammap(x,alpha) (alpha*(1-pow(x,-1/alpha)))
 #define square(a) ((a)*(a))
 
 #define min2(a,b) ((a)<(b)?(a):(b))
 #define max2(a,b) ((a)>(b)?(a):(b))
+/* keep same +- in a and b */
 #define SIGN(a,b) ((b) >= 0.0 ? fabs(a) : -fabs(a))
 
 /* Stanard lib of C++ */
@@ -104,7 +106,7 @@ public:
 	
 	/* Calculate the amino acid of codon by codon */
 	char getAminoAcid(string codon);
-	/* Calculate the amino acid of codon by codon's id*/
+	/* Calculate the amino acid of codon by codon's id */
 	char getAminoAcid(int id);
 	/* Get the number of stop codon in a given genetic code table */
 	int getNumNonsense(int genetic_code);

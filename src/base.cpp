@@ -68,7 +68,7 @@ const char* transl_table[] = {
 
 string seq_name;		//sequences' name
 unsigned long length;	//sequences' length
-double GC[4];			//GC Content
+double GC[4];			//GC Content,0:total gc content,1:gc content in codon[0],2:gc content in codon[1]...
 //********End of Global variables**********
 
 //Constructor function
@@ -107,6 +107,8 @@ void Base::addString(string &result, string str, string flag) {
 * Return Value: char 
 ***********************************************************************/
 char Base::getAminoAcid(string codon) {
+	
+	// sprintf(codon);
 	return transl_table[2*(genetic_code-1)][getID(codon)];
 }
 char Base::getAminoAcid(int id) {
@@ -534,6 +536,7 @@ string Base::parseOutput() {
 	tmp += CONVERT<string>(GC[1]);	tmp += ":";
 	tmp += CONVERT<string>(GC[2]);	tmp += ":";
 	tmp += CONVERT<string>(GC[3]);	tmp += ")";
+	// printf("the gc content is  %s", tmp.c_str());
 	addString(result, tmp);
 	
 	//Maximum Likelihood Value
@@ -620,7 +623,8 @@ double Base::fisher(double sd, double nd, double s, double n) {
 			}
 		}
 	}
-	
+	// printf("prob_total is %f\n",prob_total);
+	// printf("in fisher_sd is %f\n",sd);
 	return prob_total;
 }
 

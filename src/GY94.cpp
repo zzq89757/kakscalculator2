@@ -1349,7 +1349,7 @@ string GY94::Run(const char *seq1, const char *seq2) {
 	//free(com.fpatt);
 	//free(com.space);
 	delete []com.space;
-		
+	
 	return parseOutput();
 }
 
