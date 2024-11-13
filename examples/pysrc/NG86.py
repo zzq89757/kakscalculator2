@@ -554,6 +554,7 @@ class NG86(Base):
                 else:
                     d = (-3.0) * d / 4.0
         return d
+    
     def run(self, seq1, seq2)->None:
         # Main function of calculating kaks
         self.preprocess(seq1, seq2)
